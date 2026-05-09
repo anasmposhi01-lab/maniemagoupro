@@ -1,0 +1,229 @@
+<!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+                            <center>  
+                                     <div>
+                                         <a  href="<?php echo Router::webroot('user/'.$this->Session->user('file')); ?>">
+                                           <img  class="anas1" src="<?php echo Router::webroot('user/'.$this->Session->user('file')); ?>"  alt="">
+                                         </a>
+                                     </div>
+                                         <a  href="" style="color: white;">User Connecté:<?php echo ' ✔ '.$this->Session->user('nom'); ?></a>
+                            </center> 
+        <h2 style="text-align: center;">BIENVENUE SUR LA PAGE D'ENREGISTREMENT DE COMMISSION D'AFFECTATION</h2>
+        <u style="color: red;"><center>*******************************************************************</center></u>
+        <ol>
+          <li><a href="" style="color: red;"><?php echo $this->Session->flash(); ?></a></li>
+          <li style="text-align: justify;">Cette page vous permet d'enrégistrer des Commission d'Affectation. Egalement, cette page permet de faire des recherches, en cas de besoin, dans notre serveur pour une utilisation utile. dans la partie annexe de cette page, vous êtes informé de toutes les statistiques liées au nombres de nos différents courriers, selon leur catégorie y compris les Arrêtés qui ont été signés par le Gouvernement Provincial du Maniema. Un bonus lié à l'accès aux listes reparties selon les différentes réunions tenues au Cabinet du Gouverneur s'y trouvent également.
+          </li>
+        </ol>
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Blog Single Section ======= -->
+    <section id="blog" class="blog">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+
+          <div class="col-lg-8 entries">
+
+            <article class="entry entry-single">
+
+<!-- ------------------------------------------------------------------ -->
+            <div class="blog-comments">
+
+              <div id="comment-1" class="comment">
+                <div class="d-flex">
+                  <div class="comment-img"><a href=""><img src="<?php  echo Router::url('webroot/logo_1.jpg');?>" alt=""></a></div>
+                  <div  class="comment-img">
+                              <h5 style="text-align: justify;"><a href="#" class="reply"  > ♨_♨ Cette application offre son service qu'à la cellule informatique de Son Excellence Monsieur le Gouverneur du Maniema, afin de faciliter, consultation et accès facile à tous les courriers reçus et ou signés par son Bureau, le mécanisme d'accès y sont alors stricte et des strictes mesures</a></h5>
+                  </div>
+                </div>
+              </div>
+              <!-- ------------------------------------------------------------------ -->
+<?php foreach($modifie_comission  as $k=>$v):?>
+              <div class="reply-form">
+                <h4>Veuillez prendre soin de remplir ce formulaire</h4>
+                <form  method="post" action="<?php echo Router::url('modif_suppressions/modif_comm_affect/'); ?>" enctype="multipart/form-data">
+
+                  <div><!---------------- `------------------->
+                    <div  class="tiny-editable">
+                      <h3>✍ Veuillez entrer le Numéro de cette Commission/Chams Obligatoire à remplir *</h3>
+                              <!----------------------------------------------------------------------------------------------------------------->
+                              <input type="text" name="num" value="<?php echo $v->num;?>" class="form-control" placeholder="✍ Veuillez entrer le Numéro de cette Commission/Chams Obligatoire à remplir *">
+                              <!----------------------------------------------------------------------------------------------------------------->
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col form-group">
+                      <h3>✍ Veuillez modifier le nom de la Division pour cette Commussion *</h3>
+                              <!----------------------------------------------------------------------------------------------------------------->
+                              <input type="text" name="division" value="<?php echo $v->division;?>" class="form-control" placeholder="✍ Veuillez modifier le nom de la Division pour cette Commussion/Chams Obligatoire à remplir *">
+                              <!----------------------------------------------------------------------------------------------------------------->
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col form-group">
+                      <h3>✍ Veuillez modifier la Fonction de l'Agent/Commission *</h3>
+                              <!----------------------------------------------------------------------------------------------------------------->
+                              <input type="text" name="fonction" value="<?php echo $v->fonction;?>" class="form-control" placeholder="✍ Veuillez modifier la Fonction de l'Agent affecté/Chams Non Obligatoire à remplir s'il s'agit d'une Commussion collective. *">
+                              <!----------------------------------------------------------------------------------------------------------------->
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col form-group"><h3>✍ Veuillez modifier Nom de l'Agent affecté/Commission *</h3>
+                              <!----------------------------------------------------------------------------------------------------------------->
+                              <input type="text" name="Nom_personne_affect" value="<?php echo $v->Nom_personne_affect;?>" class="form-control" placeholder="✍ Veuillez Entrer le Nom de l'Agent affecté/Chams non Obligatoire à remplir: cas d'une Commussion Collective. *">
+                              <!----------------------------------------------------------------------------------------------------------------->
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col form-group">✍ Veuillez modifier le lieu-affectation de l'Agent affecté/Commission *</h3>
+                              <!----------------------------------------------------------------------------------------------------------------->
+                              <input type="text" name="lieu_affectation" value="<?php echo $v->lieu_affectation;?>" class="form-control" placeholder="✍ Veuillez entrer le lieux d'Affectation de l'Agent(Facultatif s'il s'agit d'une Commission Collective *">
+                              <!----------------------------------------------------------------------------------------------------------------->
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col form-group">✍ Veuillez modifier le date de signature de la Commission *</h3>
+                              <!----------------------------------------------------------------------------------------------------------------->
+                              <input type="text" name="date_signature" value="<?php echo $v->date_signature;?>" class="form-control" placeholder="✍ Veuiller Entrer la date de signature de cette Commission *">
+                              <!----------------------------------------------------------------------------------------------------------------->
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col form-group">
+                              <!----------------------------------------------------------------------------------------------------------------->
+                              <input hidden type="number" name="id" value="<?php echo $v->id;?>" class="form-control">
+                              <input hidden type="text" name="date_enr" value="<?php echo $v->date_enr;?>" class="form-control">
+                              <input hidden type="text" name="heure_enr" value="<?php echo $v->heure_enr;?>" class="form-control">
+                              <input hidden type="text" name="file" value="<?php echo $v->file;?>" class="form-control">
+                              <!--------------------------------------------------------------------------------------------------------------->
+                    </div>
+                  </div>
+                <input  class="btn btn-primary" type="submit" value="Modifier &rarr; ">
+                </form>
+<?php endforeach;?>
+              </div>
+<!-- ------------------------------------------------------------------ -->
+              <div class="reply-form">
+                <h4>Rechercher une Commission</h4>
+                <p>Veuillez 👇 selectioner le mode de recherche * </p>
+                <form  method="post" action="<?php echo Router::url('searchers/comm_affect/'); ?>" enctype="multipart/form-data" >
+                  <div class="row">
+                    <div class="col-md-6 form-group">
+                              <select name="mode" type="text"  class="anas1">
+                                       <option value="num"><strong><i>Numéro *</i></strong></option>
+                                       <option value="division"><strong><i>division *</i></strong></option>fonction
+                                       <option value="Nom_personne_affect"><strong><i>Nom Nom_personne_affect *</i></strong></option>
+                                       <option value="fonction"><strong><i>fonction *</i></strong></option>
+                              </select>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col form-group">
+                      <textarea  style="font-family:Helvetica,Arial,sans-serif; text-transform: uppercase;" name="objet_1" class="form-control" placeholder="Entrez votre  Référence *"></textarea>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Trouver</button>
+
+                </form>
+
+              </div>
+
+            </div><!-- End blog comments -->
+
+          </div><!-- End blog entries list -->
+
+          <div class="col-lg-4">
+
+            <div class="sidebar">
+
+              <h3 class="sidebar-title">Recherche rapide avec un numéro </h3>
+              <div class="sidebar-item search-form">
+                <form  method="post" action="<?php echo Router::url('searchers/comm_affect/'.$id=1); ?>" enctype="multipart/form-data" >
+                  <input type="text" name="objet_1">
+                  <button type="submit"><i class="bi bi-search"></i></button>
+                </form>
+              </div><!-- End sidebar search formn-->
+
+              <h3 class="sidebar-title">Catégories</h3>
+              <div class="sidebar-item categories">
+                <ul>
+                  <h3><u>Statistique de Courriers</u></h3>
+                  <li>✔<a href="<?php  echo Router::url('printers/annuaire_courriers_entrants/'.$this->Session->user('role'));?>">Total Courriers entrants : <span>(<?php   echo $total_entrants;?>) Courriers</a></span></li>
+                  <li>✔<a href="<?php echo Router::url('printers/annuaire_courriers_sortants/'.$this->Session->user('role'));?>">Total Courriers sortants : <span>(<?php echo $total_sortants;?>) Courriers</a></span></li>                  
+                  <li>✔<a href="<?php  echo Router::url('printers/annuaire_courriers_entrants_orientes/'.$this->Session->user('role'));?>">Total Courriers Orientés : <span>(<?php   echo $total_orientes;?>) Courriers</a></span></li>
+                  <li>✔<a href="<?php echo Router::url('printers/annuaire_accuses_de_reception/'.$this->Session->user('role'));?>">Total Accusés de Réception : <span>(<?php echo $total_accuses;?>) Courriers</a></span></li>
+                  <li>✔<a href="<?php echo Router::url('printers/annuaire_arretes/'.$this->Session->user('role'));?>">Total Arrêtés : <span>(<?php echo $total_arret;?>) Arrêtés</a></span></li>
+                  <li>✔<a href="<?php echo Router::url('printers/liste_presence_reunion_gouv/'.$this->Session->user('role'));?>">Total des Réunions : <span>(<?php echo $total_reunion;?>)  tenues</a></span></li>
+                  <li>✔<a href="<?php echo Router::url('printers/annuaire_arretes/'.$this->Session->user('role'));?>">Total Arrêtés : <span>(<?php echo $total_arret;?>) Arrêtés</a></span></li>
+                  <li>✔<a href="<?php echo Router::url('printers/annuaire_discours/'.$this->Session->user('role'));?>">Total des Discours : <span>(<?php echo $total_discours;?>)</a></span></li>
+                  <li>✔<a href="<?php echo Router::url('printers/annuaire_ordre_mission/'.$this->Session->user('role'));?>">Total des Ordres de Mission signé : <span>(<?php echo $total_OR;?>)</a></span></li>
+                  <li>✔<a href="<?php echo Router::url('printers/annuaire_comm_affectation/'.$this->Session->user('role'));?>">Total des Commissions d'Affectations signées : <span>(<?php echo $total_comm_affect;?>)</a></span></li>
+
+                </ul>
+              </div><!-- End sidebar categories-->
+
+              <h3 class="sidebar-title">Recentes Discutions</h3>
+              <div class="sidebar-item recent-posts">
+                <div class="post-item clearfix">
+                  <img src="assets/img/blog/blog-recent-1.jpg" alt="">
+                  <h4><a href="blog-single.html">Focal 1</a></h4>
+                  <time datetime="2020-01-01">Jan 1, 2020</time>
+                </div>
+
+                <div class="post-item clearfix">
+                  <img src="assets/img/blog/blog-recent-2.jpg" alt="">
+                  <h4><a href="blog-single.html">Focal 2</a></h4>
+                  <time datetime="2020-01-01">Jan 1, 2020</time>
+                </div>
+
+                <div class="post-item clearfix">
+                  <img src="assets/img/blog/blog-recent-3.jpg" alt="">
+                  <h4><a href="blog-single.html">Focal 3</a></h4>
+                  <time datetime="2020-01-01">Jan 1, 2020</time>
+                </div>
+
+                <div class="post-item clearfix">
+                  <img src="assets/img/blog/blog-recent-4.jpg" alt="">
+                  <h4><a href="blog-single.html">Focal 4</a></h4>
+                  <time datetime="2020-01-01">Jan 1, 2020</time>
+                </div>
+
+                <div class="post-item clearfix">
+                  <img src="assets/img/blog/blog-recent-5.jpg" alt="">
+                  <h4><a href="blog-single.html">Focal 5</a></h4>
+                  <time datetime="2020-01-01">Jan 1, 2020</time>
+                </div>
+
+              </div><!-- End sidebar recent posts-->
+
+              <h3 class="sidebar-title">Statistique de Fréquentation de l'App</h3>
+              <div class="sidebar-item tags">
+                <ul>
+                  <li><a href="#">App</a></li>
+                  <li><a href="#">IT</a></li>
+                  <li><a href="#">Business</a></li>
+                  <li><a href="#">Mac</a></li>
+                  <li><a href="#">Design</a></li>
+                  <li><a href="#">Office</a></li>
+                  <li><a href="#">Creative</a></li>
+                  <li><a href="#">Studio</a></li>
+                  <li><a href="#">Smart</a></li>
+                  <li><a href="#">Tips</a></li>
+                  <li><a href="#">Marketing</a></li>
+                </ul>
+              </div><!-- End sidebar tags-->
+
+            </div><!-- End sidebar -->
+
+          </div><!-- End blog sidebar -->
+
+        </div>
+
+      </div>
+    </section><!-- End Blog Section -->
+
+
+<!--- =================================================================================================================================--->
