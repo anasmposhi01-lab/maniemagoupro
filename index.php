@@ -1,6 +1,6 @@
 <?php
 ////
-	header('location:archives/');
+	header('location:archives/webroot/');
 //}
 ?>
 
